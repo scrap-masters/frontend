@@ -1,6 +1,6 @@
 # Scrap Masters - Frontend
 
-
+# Local environment
 ## Launching the environment
 
 Install the appropriate package manager globally
@@ -37,3 +37,6 @@ If you want to build a complete project for production use, use the build comman
 
 In the created directory `dist`, there is the complete project
 
+## All commands for docker
+
+-  `make help`
