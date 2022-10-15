@@ -27,7 +27,7 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm
 
-      - name: Install pnpm
+      - name: Install dependency
         run: pnpm install
 
       - name: Run JS linter
