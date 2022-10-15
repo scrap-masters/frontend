@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  node:
+    image: "node:18"
+    tty: true
+    ports:
+      -  ${EXTERNAL_NODE_PORT}:8080
+    working_dir: /src
+    volumes:
+      - ./:/src
+    networks:
+      - scrap-masters
+
+# Networks
+networks:
+  scrap-masters:
+    driver: bridge
