@@ -1,9 +1,9 @@
-import Header from "./components/Header"
+import { Header } from "./components/Header/"
 import { Footer } from "./components/Footer"
 
 export const App = () => {
   return (
-    <div>
+    <div className="flex h-full flex-col justify-between">
       <Header />
       <Footer />
     </div>
