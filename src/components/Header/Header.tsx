@@ -38,10 +38,10 @@ export const Header = () => {
         </div>
       </div>
       {IsMobileNavbar && (
-        <div className="px-5 py-7 lg:hidden">
+        <div className="px-5 pb-7 lg:hidden">
           <ul>
             {navLinks.map((navLink) => (
-              <li key={navLink.id} className=" text-xl">
+              <li key={navLink.id} className=" mt-5 text-xl">
                 <NavLink to={navLink.to}>{navLink.name}</NavLink>
               </li>
             ))}
