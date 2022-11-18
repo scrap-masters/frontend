@@ -11,7 +11,7 @@ const navLinks: { id: number; to: string; name: string }[] = [
   {
     id: 2,
     to: "/szukaj-pracownika",
-    name: "Szukaj procownika"
+    name: "Szukaj pracownika"
   }
 ]
 
