@@ -28,5 +28,6 @@ module.exports = {
     "react/react-in-jsx-scope": "off",
     "prettier/prettier": "warn",
     "@typescript-eslint/no-var-requires": "off"
-  }
+  },
+  ignorePatterns: ["**/*.css", "**/*.html"]
 }
