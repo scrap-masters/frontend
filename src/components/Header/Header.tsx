@@ -1,5 +1,19 @@
 import { useState } from "react"
 import { GoThreeBars } from "react-icons/go"
+import { NavLink } from "react-router-dom"
+
+const navLinks: { id: number; to: string; name: string }[] = [
+  {
+    id: 1,
+    to: "/",
+    name: "Harmonogramy zajęć"
+  },
+  {
+    id: 2,
+    to: "/szukaj-pracownika",
+    name: "Szukaj procownika"
+  }
+]
 
 export const Header = () => {
   const [IsMobileNavbar, setIsMobileNavbar] = useState(false)
@@ -16,19 +30,21 @@ export const Header = () => {
           CWUP - Plan zajęć
         </h1>
         <div className="hidden h-full items-center justify-end gap-12 text-xl lg:flex">
-          <a href="#">Harmonogramy zajęć</a>
-          <a href="#">Szukaj pracownika</a>
+          {navLinks.map((navLink) => (
+            <NavLink key={navLink.id} to={navLink.to}>
+              {navLink.name}
+            </NavLink>
+          ))}
         </div>
       </div>
       {IsMobileNavbar && (
         <div className="px-5 py-7 lg:hidden">
           <ul>
-            <li className=" text-xl">
-              <a href="#">Harmonogramy zajęć</a>
-            </li>
-            <li className="mt-5 text-xl">
-              <a href="#">Szukaj pracownika</a>{" "}
-            </li>
+            {navLinks.map((navLink) => (
+              <li key={navLink.id} className=" text-xl">
+                <NavLink to={navLink.to}>{navLink.name}</NavLink>
+              </li>
+            ))}
           </ul>
         </div>
       )}
