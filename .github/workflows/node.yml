@@ -32,3 +32,14 @@ jobs:
 
       - name: Run JS linter
         run: npm run lint
+
+      - name: Run test
+        run: npm run test
+
+      - name: Build_push-image
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        run: |
+          docker login -u ${{ secrets.LOGIN }} -p ${{ secrets.PASS }}
+          docker build . -f ./.docker/react/Dockerfile -t ${{ secrets.ACR }}/${{ secrets.APPLICATION }}:latest
+          docker push ${{ secrets.ACR }}/${{ secrets.APPLICATION }}:latest
+          echo "Deploy successfully!"
