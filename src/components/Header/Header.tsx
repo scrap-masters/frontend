@@ -1,16 +1,17 @@
 import { useState } from "react"
 import { GoThreeBars } from "react-icons/go"
 import { NavLink } from "react-router-dom"
+import { routes } from "../../routing/routes"
 
 type NavLinkProps = { path: string; name: string }
 
 const navLinks: NavLinkProps[] = [
   {
-    path: "/",
+    path: routes.root(),
     name: "Harmonogramy zajęć"
   },
   {
-    path: "/szukaj-pracownika",
+    path: routes.findEmployeeRoute(),
     name: "Szukaj pracownika"
   }
 ]
