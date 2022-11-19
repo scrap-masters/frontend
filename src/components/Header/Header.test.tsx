@@ -10,6 +10,6 @@ describe("<Header /> component", () => {
         <Header />
       </Router>
     )
-    expect(screen.getByText("CWUP - Plan zajęć")).toBeInTheDocument()
+    expect(screen.getByRole("heading", { level: 1 })).toBeInTheDocument()
   })
 })

@@ -1,4 +1,4 @@
 export const routes = {
   root: () => "/",
-  findEmployeeRoute: () => "/szukaj-pracownika"
+  findEmployee: () => "/szukaj-pracownika"
 }
