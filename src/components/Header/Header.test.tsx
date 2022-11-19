@@ -1,10 +1,15 @@
 import "tests.utils"
 import { render, screen } from "@testing-library/react"
 import { Header } from "./Header"
+import { BrowserRouter as Router } from "react-router-dom"
 
 describe("<Header /> component", () => {
   it("render with proper text", () => {
-    render(<Header />)
+    render(
+      <Router>
+        <Header />
+      </Router>
+    )
     expect(screen.getByText("CWUP - Plan zajęć")).toBeInTheDocument()
   })
 })
