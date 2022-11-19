@@ -1,10 +1,17 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { routes } from "./routes"
+import { Layout } from "../components/Layout"
 
 const router = createBrowserRouter([
   {
     path: routes.root(),
-    element: <div>Temporary element</div>
+    element: <Layout />,
+    children: [
+      {
+        path: routes.root(),
+        element: <div>This is content, you can put any component here</div>
+      }
+    ]
   }
 ])
 
