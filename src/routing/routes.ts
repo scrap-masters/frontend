@@ -1,3 +1,5 @@
 export const routes = {
-  root: () => "/"
+  root: () => "/",
+  department: (id: number) => `/departments/${id}`,
+  field: (id: number) => `/fields/${id}`
 }
