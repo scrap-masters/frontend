@@ -15,13 +15,13 @@ export const CardImage = (props: CardImageProps) => {
         text-4xl font-medium text-white"
       >
         <img
-          src={`/images/${imgUrl}`}
+          src={imgUrl}
           alt={title}
-          className="col-end-1 row-end-1"
+          className="col-end-1 row-end-1 brightness-75"
         />
-        <div className="col-end-1 row-end-1 py-8 px-8 text-center">
-          <p className="">{title}</p>
-        </div>
+        <p className="z-10 col-end-1 row-end-1 m-auto text-center leading-relaxed">
+          {title}
+        </p>
       </div>
     </Link>
   )
