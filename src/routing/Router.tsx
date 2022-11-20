@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { Card } from "../components/Card"
 import { routes } from "./routes"
 import { Layout } from "../components/Layout"
 
