@@ -8,7 +8,6 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: routes.root(),
         element: <div>This is content, you can put any component here</div>
       }
     ]
