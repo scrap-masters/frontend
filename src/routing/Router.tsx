@@ -1,24 +1,17 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { Card } from "../components/Card"
 import { routes } from "./routes"
+import { Layout } from "../components/Layout"
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: routes.root(),
-    element: (
-      <div>
-        <Card
-          title="Wydział Nauk o Zdrowiu i Kulturze Fizycznej"
-          path={routes.department(1)}
-          image="/images/department1.png"
-        />
-        <Card
-          title="Informatyka"
-          path={routes.fieldOfStudy(1)}
-          className="bg-red-500"
-        />
-      </div>
-    )
+    element: <Layout />,
+    children: [
+      {
+        element: <div>This is content, you can put any component here</div>
+      }
+    ]
   }
 ])
 

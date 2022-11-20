@@ -4,3 +4,5 @@ pnpm-lock.yaml
 .husky
 LICENSE
 README.md
+docker-compose.yml
+.github
