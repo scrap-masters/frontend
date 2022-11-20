@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { routes } from "./routes"
 import { Layout } from "../components/Layout"
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: routes.root(),
     element: <Layout />,
