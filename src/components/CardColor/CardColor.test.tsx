@@ -4,7 +4,7 @@ import { CardColor } from "./CardColor"
 import { routes } from "../../routing/routes"
 import { BrowserRouter } from "react-router-dom"
 
-describe("<Footer /> component", () => {
+describe("<CardColor /> component", () => {
   it("render with proper text", () => {
     const title = "Stacjonarne"
     render(

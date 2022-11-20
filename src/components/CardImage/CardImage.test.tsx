@@ -4,7 +4,7 @@ import { CardImage } from "./CardImage"
 import { routes } from "../../routing/routes"
 import { BrowserRouter } from "react-router-dom"
 
-describe("<Footer /> component", () => {
+describe("<CardImage /> component", () => {
   it("render with proper text", () => {
     const title = "Wydział Nauk o Zdrowiu i Kulturze Fizycznej"
     render(
