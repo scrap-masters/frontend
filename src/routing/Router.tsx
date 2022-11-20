@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import { Card } from "../components/Card"
 import { routes } from "./routes"
 import { Layout } from "../components/Layout"
+import { Group } from "../components/Group"
 
 export const router = createBrowserRouter([
   {
@@ -9,7 +9,12 @@ export const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        element: <div>This is content, you can put any component here</div>
+        path: routes.root(),
+        element: (
+          <div>
+            <Group />
+          </div>
+        )
       }
     ]
   }
