@@ -7,7 +7,6 @@ const router = createBrowserRouter([
     path: routes.root(),
     element: (
       <div>
-        {" "}
         <Card
           title="Wydział Nauk o Zdrowiu i Kulturze Fizycznej"
           path={routes.department(1)}
