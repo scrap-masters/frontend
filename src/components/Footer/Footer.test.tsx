@@ -1,5 +1,4 @@
-import "tests.utils"
-import { render, screen } from "@testing-library/react"
+import { render, screen } from "../../tests/tests.utils"
 import { Footer } from "./Footer"
 
 describe("<Footer /> component", () => {
