@@ -1,3 +1,4 @@
 export const routes = {
-  root: () => "/"
+  root: () => "/",
+  findEmployee: () => "/szukaj-pracownika"
 }
