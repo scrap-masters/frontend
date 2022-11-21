@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import { Card } from "../components/Card"
 import { routes } from "./routes"
 import { Layout } from "../components/Layout"
 
@@ -9,7 +8,8 @@ export const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        element: <div>This is content, you can put any component here</div>
+        path: routes.root(),
+        element: <div>This is temporary element</div>
       }
     ]
   }
