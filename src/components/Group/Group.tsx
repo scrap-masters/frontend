@@ -20,10 +20,10 @@ export const Group = (props: GroupProps) => {
       <h2 className="text-center text-[45px] font-semibold">{title}</h2>
       <div
         className={classNames(
-          "mt-8 ",
+          "mt-8",
           elements.length < 5
-            ? "flex justify-center gap-20"
-            : "grid grid-cols-4 place-items-center"
+            ? "flex flex-wrap justify-center gap-20"
+            : "grid grid-cols-[repeat(auto-fill,_350px)] place-content-around place-items-center gap-x-20"
         )}
       >
         {elements.map((element) => (
