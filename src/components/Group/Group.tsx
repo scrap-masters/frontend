@@ -26,13 +26,8 @@ export const Group = (props: GroupProps) => {
             : "grid grid-cols-[repeat(auto-fill,_350px)] place-content-around place-items-center gap-20"
         )}
       >
-        {elements.map((element) => (
-          <Card
-            key={element.title}
-            title={element.title}
-            path={element.path}
-            image={element.image}
-          />
+        {elements.map(({ title, path, image }) => (
+          <Card key={title} title={title} path={path} image={image} />
         ))}
       </div>
     </div>
