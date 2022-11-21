@@ -1,3 +1,4 @@
+import classNames from "classnames"
 import { Card } from "../Card"
 
 type ElementProps = {
@@ -17,7 +18,14 @@ export const Group = (props: GroupProps) => {
   return (
     <div className="px-20 py-10">
       <h2 className="text-center text-[45px] font-semibold">{title}</h2>
-      <div className="mt-8 grid grid-cols-4 place-items-center">
+      <div
+        className={classNames(
+          "mt-8 ",
+          elements.length < 5
+            ? "flex justify-center gap-20"
+            : "grid grid-cols-4 place-items-center"
+        )}
+      >
         {elements.map((element) => (
           <Card
             key={element.title}
