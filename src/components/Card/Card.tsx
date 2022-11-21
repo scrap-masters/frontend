@@ -14,7 +14,7 @@ export const Card = (props: CardProps) => {
     <Link to={path}>
       <div
         className={classNames(
-          "m-10 grid h-[300px] w-[350px]  rounded-2xl text-4xl font-medium text-white",
+          "grid h-[300px] w-[350px] rounded-2xl text-4xl font-medium text-white",
           className
         )}
       >
