@@ -1,6 +1,5 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
-import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin"
 
 module.exports = {
   entry: "/index.tsx",
@@ -39,13 +38,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new HtmlWebpackPlugin({ template: "index.html" }),
-    new ForkTsCheckerWebpackPlugin({
-      async: false,
-      eslint: {
-        files: path.resolve(__dirname, "../../src/**/*.{ts,tsx,js,jsx}")
-      }
-    })
-  ]
+  plugins: [new HtmlWebpackPlugin({ template: "index.html" })]
 }
