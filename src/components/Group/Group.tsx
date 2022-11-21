@@ -1,51 +1,29 @@
-import { routes } from "../../routing/routes"
 import { Card } from "../Card"
 
-type FacultyProps = {
+type ElementProps = {
   title: string
   path: string
-  image: string
+  color?: string
+  image?: string
 }
 
-const faculties: Array<FacultyProps> = [
-  {
-    title: "Kultura Fizyczna",
-    path: routes.department(1),
-    image: "./images/faculty1.png"
-  },
-  {
-    title: "Techniczne",
-    path: routes.department(2),
-    image: "./images/faculty2.png"
-  },
-  {
-    title: "Społeczne",
-    path: routes.department(3),
-    image: "./images/faculty3.png"
-  },
-  {
-    title: "Wychowanie fizyczne",
-    path: routes.department(4),
-    image: "./images/faculty4.png"
-  },
-  {
-    title: "Erasmus",
-    path: routes.department(5),
-    image: "./images/faculty5.png"
-  }
-]
+interface GroupProps {
+  title: string
+  elements: Array<ElementProps>
+}
 
-export const Group = () => {
+export const Group = (props: GroupProps) => {
+  const { title, elements } = props
   return (
     <div className="px-20 py-10">
-      <h2 className="text-center text-[45px] font-semibold">Wydziały</h2>
-      <div className="mt-8 grid grid-cols-4">
-        {faculties.map((faculty) => (
+      <h2 className="text-center text-[45px] font-semibold">{title}</h2>
+      <div className="mt-8 grid grid-cols-4 place-items-center">
+        {elements.map((element) => (
           <Card
-            key={faculty.title}
-            title={faculty.title}
-            path={faculty.path}
-            image={faculty.image}
+            key={element.title}
+            title={element.title}
+            path={element.path}
+            image={element.image}
           />
         ))}
       </div>
