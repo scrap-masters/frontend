@@ -1,34 +1,25 @@
-import { routes } from "../../routing/routes"
 import { Group } from "../../components/Group"
+import FacultyImg1 from "../../images/faculty1.png"
+import FacultyImg2 from "../../images/faculty2.png"
+import FacultyImg3 from "../../images/faculty3.png"
+import { useGetFaculties } from "../../api/faculties"
+import { routes } from "../../routing/routes"
 
-const faculties = [
-  {
-    title: "Wydział Nauk o Zdrowiu i Kulturze Fizycznej",
-    path: routes.department(1),
-    image: "./images/faculty1.png"
-  },
-  {
-    title: "Wydział Nauk Technicznych i Ekonomicznych",
-    path: routes.department(2),
-    image: "./images/faculty2.png"
-  },
-  {
-    title: "Wydział Nauk Społecznych i Humanistycznych",
-    path: routes.department(3),
-    image: "./images/faculty3.png"
-  },
-  {
-    title: "Wychowanie fizyczne",
-    path: routes.department(4),
-    image: "./images/faculty4.png"
-  },
-  {
-    title: "Erasmus",
-    path: routes.department(5),
-    image: "./images/faculty5.png"
-  }
-]
+const facultyImages: Array<string> = [FacultyImg1, FacultyImg2, FacultyImg3]
 
 export const HomePage = () => {
-  return <Group title="Wydziały" elements={faculties} />
+  const { data, isLoading, isError, error } = useGetFaculties()
+
+  if (isLoading) return <p>Loading...</p>
+
+  if (isError) return <p>{error.message}</p>
+
+  return (
+    <Group
+      title="Wydziały"
+      route={routes.departments}
+      elements={data.data}
+      images={facultyImages}
+    />
+  )
 }
