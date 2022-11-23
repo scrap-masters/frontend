@@ -10,7 +10,7 @@ interface GroupProps {
   title: string
   elements: Array<ElementProps>
   route: (id: number) => string
-  images: Array<string>
+  images?: Array<string>
 }
 
 export const Group = (props: GroupProps) => {
@@ -27,7 +27,12 @@ export const Group = (props: GroupProps) => {
         )}
       >
         {elements.map(({ id, name }, index) => (
-          <Card key={id} name={name} path={route(id)} image={images[index]} />
+          <Card
+            key={id}
+            name={name}
+            path={route(id)}
+            image={images && images[index]}
+          />
         ))}
       </div>
     </div>

@@ -4,7 +4,7 @@ import { Card } from "./Card"
 describe("<Card /> component", () => {
   it("render with proper text", () => {
     const title = "Wydział Nauk Technicznych i Ekonomicznych"
-    render(<Card title={title} path="/" />)
+    render(<Card name={title} path="/" />)
     expect(screen.getByText(title)).toBeInTheDocument()
   })
 })
