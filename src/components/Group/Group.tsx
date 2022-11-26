@@ -1,15 +1,11 @@
 import classNames from "classnames"
 import { colors } from "../../constants/colors"
-import { Card } from "../Card"
-
-type ElementProps = {
-  id: number
-  name: string
-}
+import { Card, CardProps } from "../Card"
+import { Link } from "react-router-dom"
 
 interface GroupProps {
   title: string
-  elements: Array<ElementProps>
+  elements: Array<CardProps>
   route: (id: number) => string
 }
 
@@ -28,12 +24,9 @@ export const Group = (props: GroupProps) => {
         )}
       >
         {elements.map(({ id, name }, index) => (
-          <Card
-            key={id}
-            name={name}
-            path={route(id)}
-            className={colors[index % colors.length]}
-          />
+          <Link key={id} to={route(id)}>
+            <Card id={id} name={name} className={colors[index]} />
+          </Link>
         ))}
       </div>
     </div>

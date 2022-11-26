@@ -10,7 +10,7 @@ describe("<Group /> component", () => {
     { id: 3, name: "Sieci" }
   ]
 
-  it("render with proper text", () => {
+  it("render with group header", () => {
     render(
       <Group title={title} route={routes.departments} elements={elements} />
     )
@@ -19,8 +19,7 @@ describe("<Group /> component", () => {
 
   it("render without elements", () => {
     render(<Group title={title} route={routes.departments} elements={[]} />)
-    const currentElements = document.querySelectorAll("p")
-    expect(currentElements).toHaveLength(0)
+    expect(screen.queryAllByRole("heading", { level: 3 })).toHaveLength(0)
   })
 
   it("render with one Element", () => {
@@ -28,18 +27,18 @@ describe("<Group /> component", () => {
       <Group
         title={title}
         route={routes.departments}
-        elements={elements.slice(0, 1)}
+        elements={[elements[0]]}
       />
     )
-    const currentElements = document.querySelectorAll("p")
-    expect(currentElements).toHaveLength(1)
+    expect(screen.queryAllByRole("heading", { level: 3 })).toHaveLength(1)
   })
 
   it("render with several elements", () => {
     render(
       <Group title={title} route={routes.departments} elements={elements} />
     )
-    const currentElements = document.querySelectorAll("p")
-    expect(currentElements).toHaveLength(elements.length)
+    expect(screen.queryAllByRole("heading", { level: 3 })).toHaveLength(
+      elements.length
+    )
   })
 })
