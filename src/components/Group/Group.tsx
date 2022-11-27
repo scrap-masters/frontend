@@ -13,7 +13,7 @@ export const Group = (props: GroupProps) => {
   const { title, elements, route } = props
 
   return (
-    <div className="px-20 py-10">
+    <div>
       <h2 className="text-center text-[45px] font-semibold">{title}</h2>
       <div
         className={classNames(
