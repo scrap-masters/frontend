@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { routes } from "./routes"
 import { Layout } from "../components/Layout"
+import { HomePage } from "../pages/HomePage"
 
 export const router = createBrowserRouter([
   {
@@ -9,7 +10,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: routes.root(),
-        element: <div>This is temporary element</div>
+        element: <HomePage />
       }
     ]
   }
