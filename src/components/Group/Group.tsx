@@ -25,7 +25,11 @@ export const Group = (props: GroupProps) => {
       >
         {elements.map(({ id, name }, index) => (
           <Link key={id} to={route(id)}>
-            <Card id={id} name={name} className={colors[index]} />
+            <Card
+              id={id}
+              name={name}
+              className={colors[index % colors.length]}
+            />
           </Link>
         ))}
       </div>
