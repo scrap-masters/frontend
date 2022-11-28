@@ -3,7 +3,6 @@ import { routes } from "./routes"
 import { Layout } from "../components/Layout"
 import { HomePage } from "../pages/HomePage"
 import { FieldsPage } from "../pages/FieldsPage"
-import { apiRoutes } from "../constants/api"
 
 export const router = createBrowserRouter([
   {
@@ -15,7 +14,7 @@ export const router = createBrowserRouter([
         element: <HomePage />
       },
       {
-        path: apiRoutes.getFacultyFields,
+        path: routes.fields(),
         element: <FieldsPage />
       }
     ]

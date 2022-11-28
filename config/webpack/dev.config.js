@@ -9,13 +9,14 @@ module.exports = merge(commonConfig, {
     path: path.resolve(__dirname, "../../dist"),
     filename: "bundle.js",
     clean: true,
+    publicPath: "/"
   },
   devServer: {
     hot: true,
-    historyApiFallback: true,
+    historyApiFallback: true
   },
   plugins: [new ReactRefreshPlugin()],
   performance: {
-    hints: false,
-  },
+    hints: false
+  }
 })

@@ -1,6 +1,7 @@
 export const routes = {
   root: () => "/",
   findEmployee: () => "/szukaj-pracownika",
-  fields: (id: number) => `/faculties/${id}/fields`,
+  fields: (id?: number) =>
+    id ? `/faculties/${id}/fields` : `/faculties/:id/fields`,
   specializations: (id: number) => `/fields/${id}/specializations`
 }
