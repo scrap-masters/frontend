@@ -12,7 +12,7 @@ export const HomePage = () => {
   return (
     <Group
       title="Wydziały"
-      route={routes.departments}
+      route={routes.fields}
       elements={facultiesData.data}
     />
   )

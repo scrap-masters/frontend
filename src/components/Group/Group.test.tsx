@@ -11,32 +11,24 @@ describe("<Group /> component", () => {
   ]
 
   it("render with group header", () => {
-    render(
-      <Group title={title} route={routes.departments} elements={elements} />
-    )
+    render(<Group title={title} route={routes.fields} elements={elements} />)
     expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument()
   })
 
   it("render without elements", () => {
-    render(<Group title={title} route={routes.departments} elements={[]} />)
+    render(<Group title={title} route={routes.fields} elements={[]} />)
     expect(screen.queryAllByRole("heading", { level: 3 })).toHaveLength(0)
   })
 
   it("render with one Element", () => {
     render(
-      <Group
-        title={title}
-        route={routes.departments}
-        elements={[elements[0]]}
-      />
+      <Group title={title} route={routes.fields} elements={[elements[0]]} />
     )
     expect(screen.queryAllByRole("heading", { level: 3 })).toHaveLength(1)
   })
 
   it("render with several elements", () => {
-    render(
-      <Group title={title} route={routes.departments} elements={elements} />
-    )
+    render(<Group title={title} route={routes.fields} elements={elements} />)
     expect(screen.queryAllByRole("heading", { level: 3 })).toHaveLength(
       elements.length
     )

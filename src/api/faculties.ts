@@ -9,4 +9,4 @@ export const useGetFaculty = (id: number) =>
   useFetch(pathToUrl(apiRoutes.getFaculty, { id }))
 
 export const useGetFacultyFields = (id: number) =>
-  useFetch(pathToUrl(apiRoutes.getFacultyFields, { id }))
+  useFetch<FacultyFieldProps>(pathToUrl(apiRoutes.getFacultyFields, { id }))
