@@ -5,7 +5,12 @@ import { CalendarDayHeader } from "../CalendarDayHeader"
 import { useWindowSize } from "usehooks-ts"
 import { useEffect, useRef } from "react"
 
-export const Calendar = () => {
+export interface CalendarProps {
+  timetable: Array<any>
+}
+
+export const Calendar = (props: CalendarProps) => {
+  const { timetable } = props
   const calendarRef = useRef(null)
   const { width } = useWindowSize()
 
@@ -39,18 +44,7 @@ export const Calendar = () => {
       }}
       eventClassNames="bg-transparent border-transparent"
       dayHeaderContent={(hookProps) => <CalendarDayHeader {...hookProps} />}
-      events={[
-        {
-          title: "Matematyka",
-          start: "2022-11-24T08:15:00",
-          end: "2022-11-24T09:45:00",
-          extendedProps: {
-            room: "C111",
-            lecturer: "Prof. dr. hab. Selwat",
-            type: "Ćw"
-          }
-        }
-      ]}
+      events={timetable}
       eventContent={(hookProps) => <CalendarEvent {...hookProps} />}
       titleFormat={{
         day: "2-digit",
