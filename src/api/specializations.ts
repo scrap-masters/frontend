@@ -7,3 +7,9 @@ export const useGetSpecialziations = () =>
 
 export const useGetSpecialization = (id: number) =>
   useFetch(pathToUrl(apiRoutes.getSpecialization, { id }))
+
+export const useGetSpecializationTimetable = (id: number) =>
+  useFetch(pathToUrl(apiRoutes.getSpecializationTimetable, { id }))
+
+export const useGetSpecializationLegend = (id: number) =>
+  useFetch(pathToUrl(apiRoutes.getSpecializationLegend, { id }))

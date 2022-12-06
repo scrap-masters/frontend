@@ -6,5 +6,7 @@ export const apiRoutes = {
   getField: "/fields/:id",
   getFieldSpecializations: "/fields/:id/specializations",
   getSpecializations: "/specializations",
-  getSpecialization: "/specializations/:id"
+  getSpecialization: "/specializations/:id",
+  getSpecializationTimetable: "/specializations/:id/timetable",
+  getSpecializationLegend: "/specializations/:id/legend"
 }
