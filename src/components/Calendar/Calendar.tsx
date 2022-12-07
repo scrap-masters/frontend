@@ -1,4 +1,4 @@
-import FullCalendar from "@fullcalendar/react"
+import FullCalendar, { EventInput } from "@fullcalendar/react"
 import timeGridPlugin from "@fullcalendar/timegrid"
 import { CalendarEvent } from "../CalendarEvent"
 import { CalendarDayHeader } from "../CalendarDayHeader"
@@ -6,7 +6,7 @@ import { useWindowSize } from "usehooks-ts"
 import { useEffect, useRef } from "react"
 
 export interface CalendarProps {
-  timetable: Array<any>
+  timetable: Array<EventInput>
 }
 
 export const Calendar = (props: CalendarProps) => {
@@ -42,7 +42,7 @@ export const Calendar = (props: CalendarProps) => {
         minute: "2-digit",
         hour12: false
       }}
-      eventClassNames="bg-transparent border-transparent"
+      eventClassNames="bg-transparent border-transparent !shadow-none"
       dayHeaderContent={(hookProps) => <CalendarDayHeader {...hookProps} />}
       events={timetable}
       eventContent={(hookProps) => <CalendarEvent {...hookProps} />}

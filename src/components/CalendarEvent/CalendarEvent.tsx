@@ -1,23 +1,35 @@
 import { EventContentArg } from "@fullcalendar/react"
+import classNames from "classnames"
+
+const eventTypeColors = {
+  ćw: "bg-lime-500",
+  lab: "bg-purple-500",
+  wyk: "bg-red-500",
+  sem: "bg-blue-500"
+}
 
 export const CalendarEvent = (props: EventContentArg) => {
   const {
     event: { extendedProps, title }
   } = props
+  const { type, room, lecturer } = extendedProps
 
   return (
     <div
-      className="flex h-full w-full flex-col justify-between rounded-[0.75rem] bg-purple-700 p-2"
+      className={classNames(
+        "flex h-full w-full flex-col justify-between rounded-[0.75rem] p-2",
+        eventTypeColors[type]
+      )}
       data-testid="calendar-event"
     >
       <p className="flex justify-between gap-1">
         <span className="font-bold">
-          {title} ({extendedProps.type})
+          {title} ({type})
         </span>
-        <span>{extendedProps.room}</span>
+        <span className="text-right">{room}</span>
       </p>
 
-      <span>{extendedProps.lecturer}</span>
+      <span>{lecturer}</span>
     </div>
   )
 }

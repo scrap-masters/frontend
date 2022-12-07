@@ -7,18 +7,20 @@ export const CalendarPage = () => {
   const { id } = useParams()
   const { data } = useGetSpecializationTimetable(Number(id))
 
-  console.log(data.data.timetable)
+  console.log(data)
 
   const timetable = useMemo(() => {
     return data?.data.timetable.map((event) => ({
       start: event.start,
       end: event.end,
       title: event.title,
-      extentedProps: {
+      extendedProps: {
         ...event
       }
     }))
   }, [data])
+
+  console.log(timetable)
 
   return <Calendar timetable={timetable} />
 }
