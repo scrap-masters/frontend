@@ -23,11 +23,12 @@ export const Group = (props: GroupProps) => {
             : "grid grid-cols-[repeat(auto-fill,_350px)] place-content-around place-items-center gap-20"
         )}
       >
-        {elements.map(({ id, name }, index) => (
+        {elements.map(({ id, name, year }, index) => (
           <Link key={id} to={route(id)}>
             <Card
               id={id}
               name={name}
+              year={year}
               className={colors[index % colors.length]}
             />
           </Link>
