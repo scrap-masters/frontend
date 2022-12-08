@@ -1,4 +1,4 @@
-import { Group } from "../../components/Group"
+import { FieldsGroup } from "../../components/FieldsGroup"
 import { useGetFacultyFields } from "../../api/faculties"
 import { routes } from "../../routing/routes"
 import { useParams } from "react-router-dom"
@@ -19,10 +19,10 @@ export const FieldsPage = () => {
   console.log(fieldsData)
 
   return (
-    <Group
+    <FieldsGroup
       title="Kierunki"
       route={routes.specializations}
-      elements={fieldsData.data.fields}
+      fields={fieldsData.data.fields}
     />
   )
 }
