@@ -15,7 +15,7 @@ type FieldProps = {
   year: number
   slug: string
   isFullTime: boolean
-  specializations: Array<FieldProps>
+  specializations: Array<SpecializationProps>
 }
 
 type FieldsProps = {
