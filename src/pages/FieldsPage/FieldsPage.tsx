@@ -16,8 +16,6 @@ export const FieldsPage = () => {
 
   if (isError) return <p>{error.message}</p>
 
-  console.log(fieldsData)
-
   return (
     <FieldsGroup
       title="Kierunki"
