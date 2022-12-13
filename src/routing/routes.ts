@@ -3,6 +3,7 @@ export const routes = {
   findEmployee: () => "/szukaj-pracownika",
   fields: (id?: number) =>
     id ? `/faculties/${id}/fields` : `/faculties/:id/fields`,
-  specializations: (id: number) => `/fields/${id}/specializations`,
-  calendar: (id?: number) => (id ? `/calendar/${id}` : "/calendar/:id")
+  calendar: (id?: number) => (id ? `/calendar/${id}` : "/calendar/:id"),
+  specializations: (id?: number) =>
+    id ? `/fields/${id}/specializations` : "/fields/:id/specializations"
 }
