@@ -30,7 +30,10 @@ export type SpecializationProps = {
 }
 
 export type SpecializationsProps = {
-  data: Array<SpecializationProps>
+  data: {
+    id: number
+    specializations: Array<SpecializationProps>
+  }
 }
 
 export type FacultyFieldProps = {
