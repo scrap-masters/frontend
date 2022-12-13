@@ -49,6 +49,7 @@ specifiers:
   react-query: ^3.39.2
   react-refresh: ^0.14.0
   react-router-dom: ^6.4.3
+  react-switch-selector: ^2.2.1
   style-loader: ^3.3.1
   tailwindcss: ^3.1.8
   ts-loader: ^9.4.1
@@ -72,6 +73,7 @@ dependencies:
   react-icons: 4.6.0_react@18.2.0
   react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
   react-router-dom: 6.4.3_biqbaboplfbrettd7655fr4n2y
+  react-switch-selector: 2.2.1_biqbaboplfbrettd7655fr4n2y
   usehooks-ts: 2.9.1_biqbaboplfbrettd7655fr4n2y
 
 devDependencies:
@@ -5149,6 +5151,12 @@ packages:
       slash: 3.0.0
     dev: true
 
+  /goober/2.1.8:
+    resolution: {integrity: sha512-S0C85gCzcfFCMSdjD/CxyQMt1rbf2qEg6hmDzxk2FfD7+7Ogk55m8ZFUMtqNaZM4VVX/qaU9AzSORG+Gf4ZpAQ==}
+    peerDependencies:
+      csstype: ^3.0.10
+    dev: false
+
   /gopd/1.0.1:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
     dependencies:
@@ -8173,6 +8181,19 @@ packages:
     dependencies:
       '@remix-run/router': 1.0.3
       react: 18.2.0
+    dev: false
+
+  /react-switch-selector/2.2.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-Dttz6LuyRoDuf5QfF4wzV+UtNRsa54toyTUEud7Z9++Cc5s59BpCzYGLJ0kNqs093SHDHjBAaCxAuKHGKsMJEA==}
+    peerDependencies:
+      react: ^16 || ^17 || ^18
+      react-dom: ^16 || ^17 || ^18
+    dependencies:
+      goober: 2.1.8
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    transitivePeerDependencies:
+      - csstype
     dev: false
 
   /react/18.2.0:
