@@ -14,7 +14,7 @@ export const Group = (props: GroupProps) => {
   const { title, elements, route } = props
 
   return (
-    <div className="px-20 py-10">
+    <div>
       <GroupLabel title={title} />
       <GroupGridWrapper length={elements.length}>
         {elements.map(({ id, name }, index) => (

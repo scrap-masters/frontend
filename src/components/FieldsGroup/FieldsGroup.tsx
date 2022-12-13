@@ -1,10 +1,11 @@
+import { useState } from "react"
+import SwitchSelector from "react-switch-selector"
 import { colors } from "../../constants/colors"
 import { Card } from "../Card"
 import { Link } from "react-router-dom"
 import { GroupGridWrapper } from "../GroupGridWrapper"
 import { GroupLabel } from "../GroupLabel"
-import SwitchSelector from "react-switch-selector"
-import { useState } from "react"
+import { FieldProps } from "../../types/types"
 
 interface FieldsGroupProps {
   title: string
@@ -36,7 +37,7 @@ export const FieldsGroup = (props: FieldsGroupProps) => {
   }
 
   return (
-    <div className="px-20 py-10">
+    <div>
       <GroupLabel title={title} />
       <div className="float-right -mt-12 h-12 w-96">
         <SwitchSelector

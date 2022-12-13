@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { EventInput } from "@fullcalendar/react"
 
 export type FacultyProps = {
@@ -11,7 +10,7 @@ export type FacultiesProps = {
   data: Array<FacultyProps>
 }
 
-type FieldProps = {
+export type FieldProps = {
   id: number
   name: string
   year: number
@@ -20,28 +19,28 @@ type FieldProps = {
   specializations: Array<SpecializationProps>
 }
 
-type FieldsProps = {
+export type FieldsProps = {
   data: Array<FieldProps>
 }
 
-type SpecializationProps = {
+export type SpecializationProps = {
   id: number
   name: string
   slug: string
 }
 
-type SpecializationsProps = {
+export type SpecializationsProps = {
   data: Array<SpecializationProps>
 }
 
-type FacultyFieldProps = {
+export type FacultyFieldProps = {
   data: {
     id: number
     fields: Array<FieldProps>
   }
 }
 
-type SpecializationsTimetableProps = {
+export type SpecializationsTimetableProps = {
   data: {
     id: number
     timetable: Array<EventInput>
