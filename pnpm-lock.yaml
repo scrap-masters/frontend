@@ -49,6 +49,7 @@ specifiers:
   react-query: ^3.39.2
   react-refresh: ^0.14.0
   react-router-dom: ^6.4.3
+  react-spinners: ^0.13.7
   react-switch-selector: ^2.2.1
   style-loader: ^3.3.1
   tailwindcss: ^3.1.8
@@ -73,6 +74,7 @@ dependencies:
   react-icons: 4.6.0_react@18.2.0
   react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
   react-router-dom: 6.4.3_biqbaboplfbrettd7655fr4n2y
+  react-spinners: 0.13.7_biqbaboplfbrettd7655fr4n2y
   react-switch-selector: 2.2.1_biqbaboplfbrettd7655fr4n2y
   usehooks-ts: 2.9.1_biqbaboplfbrettd7655fr4n2y
 
@@ -8181,6 +8183,16 @@ packages:
     dependencies:
       '@remix-run/router': 1.0.3
       react: 18.2.0
+    dev: false
+
+  /react-spinners/0.13.7_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-mRamn56bfxWbGcacif5RT3UbeJaXi2AttjtPwSmomuv2IcxjpbfETCzdTvaQpNDk0E33ENJsStsQeKAZFuJcpA==}
+    peerDependencies:
+      react: ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /react-switch-selector/2.2.1_biqbaboplfbrettd7655fr4n2y:
