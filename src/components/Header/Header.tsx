@@ -29,7 +29,7 @@ export const Header = () => {
             <GoThreeBars size="50" />
           </button>
           <h1 className="-mt-1 place-self-center whitespace-nowrap text-center text-4xl font-semibold lg:col-start-2">
-            CWUP - Plan zajęć
+            <NavLink to={routes.root()}>CWUP - Plan zajęć</NavLink>
           </h1>
           <nav>
             <ul className="hidden h-full items-center justify-end gap-12 text-xl lg:flex">
