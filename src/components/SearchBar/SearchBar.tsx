@@ -9,7 +9,7 @@ export const SearchBar = (props: SearchBarProps) => {
   const { filter } = props
 
   return (
-    <div className="mt-10">
+    <div className="mt-10 px-5 lg:px-0">
       <label
         htmlFor="default-search"
         className="sr-only mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"

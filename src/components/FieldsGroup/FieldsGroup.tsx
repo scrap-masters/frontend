@@ -52,7 +52,7 @@ export const FieldsGroup = (props: FieldsGroupProps) => {
   return (
     <div>
       <GroupLabel title={title} />
-      <div className="float-right -mt-12 h-12 w-96">
+      <div className="mx-auto mt-5 h-12 w-96 xl:float-right xl:-mt-14">
         <SwitchSelector
           onChange={onChange}
           options={options}
