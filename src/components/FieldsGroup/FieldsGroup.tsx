@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"
 import { GroupGridWrapper } from "../GroupGridWrapper"
 import { GroupLabel } from "../GroupLabel"
 import { FieldProps } from "../../types/types"
+import { SearchBar } from "../SearchBar"
 
 interface FieldsGroupProps {
   title: string
@@ -47,6 +48,7 @@ export const FieldsGroup = (props: FieldsGroupProps) => {
           selectedFontColor={"black"}
         />
       </div>
+      <SearchBar />
       <GroupGridWrapper length={fields.length}>
         {fields.map(
           ({ id, name, year, isFullTime }, index) =>
