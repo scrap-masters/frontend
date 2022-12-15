@@ -1,7 +1,25 @@
-import React from "react"
+import { ChangeEvent } from "react"
 import { BiSearch } from "react-icons/bi"
+import { FieldProps } from "../../types/types"
 
-export const SearchBar = () => {
+interface SearchBarProps {
+  fetchedFields: Array<FieldProps>
+  setFields: React.Dispatch<React.SetStateAction<FieldProps[]>>
+}
+
+export const SearchBar = (props: SearchBarProps) => {
+  const { fetchedFields, setFields } = props
+
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const input = e.target.value.toLowerCase()
+    if (input === "") setFields(fetchedFields)
+    else {
+      const filteredFields = fetchedFields.filter((field) =>
+        `${field.name} - ${field.year} rok`.toLowerCase().includes(input)
+      )
+      setFields(filteredFields)
+    }
+  }
   return (
     <div className="mt-10">
       <label
@@ -19,6 +37,7 @@ export const SearchBar = () => {
           id="default-search"
           className="block w-full rounded-3xl border border-gray-200 bg-gray-50 p-4 pl-12 text-sm text-gray-900 shadow-md focus:outline-none"
           placeholder="Search..."
+          onChange={onChange}
         />
       </div>
     </div>

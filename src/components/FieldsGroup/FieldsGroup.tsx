@@ -30,7 +30,8 @@ const options = [
 ]
 
 export const FieldsGroup = (props: FieldsGroupProps) => {
-  const { title, fields, route } = props
+  const { title, fields: fetchedFields, route } = props
+  const [fields, setFields] = useState<Array<FieldProps>>(fetchedFields)
   const [isFullTimeOnSwitch, setIsFullTimeOnSwitch] = useState(true)
 
   const onChange = (newValue) => {
@@ -48,7 +49,7 @@ export const FieldsGroup = (props: FieldsGroupProps) => {
           selectedFontColor={"black"}
         />
       </div>
-      <SearchBar />
+      <SearchBar fetchedFields={fetchedFields} setFields={setFields} />
       <GroupGridWrapper length={fields.length}>
         {fields.map(
           ({ id, name, year, isFullTime }, index) =>
