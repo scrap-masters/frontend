@@ -41,6 +41,7 @@ jobs:
       - name: Build_push-image
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: |
+          cp .env.example .env
           docker login -u ${{ secrets.LOGIN }} -p ${{ secrets.PASS }}
           docker build . -f ./.docker/react/Dockerfile -t ${{ secrets.ACR }}/${{ secrets.APPLICATION }}:latest
           docker push ${{ secrets.ACR }}/${{ secrets.APPLICATION }}:latest
