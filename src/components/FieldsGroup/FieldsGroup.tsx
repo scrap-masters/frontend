@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { ChangeEvent, useState } from "react"
 import SwitchSelector from "react-switch-selector"
 import { colors } from "../../constants/colors"
 import { Card } from "../Card"
@@ -38,6 +38,17 @@ export const FieldsGroup = (props: FieldsGroupProps) => {
     setIsFullTimeOnSwitch(newValue.isFullTime)
   }
 
+  const filter = (e: ChangeEvent<HTMLInputElement>) => {
+    const input = e.target.value.toLowerCase()
+    if (input === "") setFields(fetchedFields)
+    else {
+      const filteredFields = fetchedFields.filter((field) =>
+        `${field.name} - ${field.year} rok`.toLowerCase().includes(input)
+      )
+      setFields(filteredFields)
+    }
+  }
+
   return (
     <div>
       <GroupLabel title={title} />
@@ -49,7 +60,7 @@ export const FieldsGroup = (props: FieldsGroupProps) => {
           selectedFontColor={"black"}
         />
       </div>
-      <SearchBar fetchedFields={fetchedFields} setFields={setFields} />
+      <SearchBar filter={filter} />
       <GroupGridWrapper length={fields.length}>
         {fields.map(
           ({ id, name, year, isFullTime }, index) =>
