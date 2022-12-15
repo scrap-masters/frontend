@@ -26,9 +26,9 @@ export const Header = () => {
       <div className="flex h-[115px] items-center bg-black px-12 ">
         <div className="grid w-full grid-cols-3 place-content-between">
           <button onClick={toggleMobileNavbar} className="-ml-7 lg:hidden">
-            <GoThreeBars size="50" />
+            <GoThreeBars size="40" />
           </button>
-          <h1 className="-mt-1 place-self-center whitespace-nowrap text-center text-4xl font-semibold lg:col-start-2">
+          <h1 className="-mt-1 place-self-center whitespace-nowrap text-center text-3xl font-semibold sm:text-4xl lg:col-start-2">
             <NavLink to={routes.root()}>CWUP - Plan zajęć</NavLink>
           </h1>
           <nav>

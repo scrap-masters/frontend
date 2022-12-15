@@ -12,9 +12,9 @@ export const GroupGridWrapper = (props: GroupGridWrapperProps) => {
     <div
       className={classNames(
         "my-12 w-full",
-        length < 5
+        length < 3
           ? "flex flex-wrap justify-center gap-20"
-          : "grid grid-cols-[repeat(auto-fill,_350px)] place-content-between place-items-center gap-20"
+          : "md: grid grid-cols-[repeat(auto-fill,_350px)] place-content-around place-items-center gap-20"
       )}
     >
       {children}

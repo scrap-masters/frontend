@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { ChangeEvent, useState } from "react"
 import SwitchSelector from "react-switch-selector"
 import { colors } from "../../constants/colors"
 import { Card } from "../Card"
@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"
 import { GroupGridWrapper } from "../GroupGridWrapper"
 import { GroupLabel } from "../GroupLabel"
 import { FieldProps } from "../../types/types"
+import { SearchBar } from "../SearchBar"
 
 interface FieldsGroupProps {
   title: string
@@ -29,17 +30,29 @@ const options = [
 ]
 
 export const FieldsGroup = (props: FieldsGroupProps) => {
-  const { title, fields, route } = props
+  const { title, fields: fetchedFields, route } = props
+  const [fields, setFields] = useState<Array<FieldProps>>(fetchedFields)
   const [isFullTimeOnSwitch, setIsFullTimeOnSwitch] = useState(true)
 
   const onChange = (newValue) => {
     setIsFullTimeOnSwitch(newValue.isFullTime)
   }
 
+  const filter = (e: ChangeEvent<HTMLInputElement>) => {
+    const input = e.target.value.toLowerCase()
+    if (input === "") setFields(fetchedFields)
+    else {
+      const filteredFields = fetchedFields.filter((field) =>
+        `${field.name} - ${field.year} rok`.toLowerCase().includes(input)
+      )
+      setFields(filteredFields)
+    }
+  }
+
   return (
     <div>
       <GroupLabel title={title} />
-      <div className="float-right -mt-12 h-12 w-96">
+      <div className="mx-auto mt-5 h-12 w-96 xl:float-right xl:-mt-14">
         <SwitchSelector
           onChange={onChange}
           options={options}
@@ -47,6 +60,7 @@ export const FieldsGroup = (props: FieldsGroupProps) => {
           selectedFontColor={"black"}
         />
       </div>
+      <SearchBar filter={filter} />
       <GroupGridWrapper length={fields.length}>
         {fields.map(
           ({ id, name, year, isFullTime }, index) =>
