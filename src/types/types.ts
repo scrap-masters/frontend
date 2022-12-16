@@ -49,3 +49,7 @@ export type SpecializationsTimetableProps = {
     timetable: Array<EventInput>
   }
 }
+
+export type LecturersProps = {
+  data: Array<string>
+}

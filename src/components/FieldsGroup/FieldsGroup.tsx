@@ -60,7 +60,7 @@ export const FieldsGroup = (props: FieldsGroupProps) => {
           selectedFontColor={"black"}
         />
       </div>
-      <SearchBar filter={filter} />
+      <SearchBar filter={filter} placeholder="Szukaj kierunku..." />
       <GroupGridWrapper length={fields.length}>
         {fields.map(
           ({ id, name, year, isFullTime }, index) =>
