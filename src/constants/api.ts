@@ -8,5 +8,6 @@ export const apiRoutes = {
   getSpecializations: "/specializations",
   getSpecialization: "/specializations/:id",
   getSpecializationTimetable: "/specializations/:id/timetable",
-  getSpecializationLegend: "/specializations/:id/legend"
+  getSpecializationLegend: "/specializations/:id/legend",
+  getLecturers: "/lecturers"
 }

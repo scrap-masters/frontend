@@ -5,6 +5,7 @@ import { HomePage } from "../pages/HomePage"
 import { FieldsPage } from "../pages/FieldsPage"
 import { CalendarPage } from "../pages/CalendarPage"
 import { SpecializationsPage } from "../pages/SpecializationsPage"
+import { LecturersPage } from "../pages/LecturersPage"
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
       {
         path: routes.calendar(),
         element: <CalendarPage />
+      },
+      {
+        path: routes.lecturers(),
+        element: <LecturersPage />
       }
     ]
   }

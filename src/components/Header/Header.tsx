@@ -11,7 +11,7 @@ const navLinks: NavLinkProps[] = [
     name: "Harmonogramy zajęć"
   },
   {
-    path: routes.findEmployee(),
+    path: routes.lecturers(),
     name: "Szukaj pracownika"
   }
 ]
