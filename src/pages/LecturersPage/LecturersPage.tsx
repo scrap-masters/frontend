@@ -32,7 +32,7 @@ export const LecturersPage = () => {
   return (
     <div>
       <GroupLabel title="Pracownicy" />
-      <SearchBar filter={filter} />
+      <SearchBar filter={filter} placeholder="Szukaj pracownika..." />
       <div className="flex justify-center">
         <ul className="mt-10 text-2xl font-semibold leading-[45px]">
           {lecturers?.map((lecturer) => (

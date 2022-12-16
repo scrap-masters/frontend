@@ -2,11 +2,12 @@ import { ChangeEvent } from "react"
 import { BiSearch } from "react-icons/bi"
 
 interface SearchBarProps {
+  placeholder?: string
   filter: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
 export const SearchBar = (props: SearchBarProps) => {
-  const { filter } = props
+  const { filter, placeholder } = props
 
   return (
     <div className="mt-10 px-5 lg:px-0">
@@ -24,7 +25,7 @@ export const SearchBar = (props: SearchBarProps) => {
           type="search"
           id="default-search"
           className="block w-full rounded-3xl border border-gray-200 bg-gray-50 p-4 pl-12 text-sm text-gray-900 shadow-md focus:outline-none"
-          placeholder="Search..."
+          placeholder={placeholder || "Search..."}
           onChange={filter}
         />
       </div>
