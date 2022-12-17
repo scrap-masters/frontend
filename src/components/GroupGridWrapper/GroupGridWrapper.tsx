@@ -2,11 +2,15 @@ import classNames from "classnames"
 
 interface GroupGridWrapperProps {
   length: number
-  children: React.ReactNode
+  children: Array<React.ReactNode>
+  emptyMessage?: string
 }
 
 export const GroupGridWrapper = (props: GroupGridWrapperProps) => {
-  const { length, children } = props
+  const { length, children, emptyMessage = "Brak elementów." } = props
+
+  console.log(children.length)
+  console.log(children)
 
   return (
     <div
@@ -17,7 +21,11 @@ export const GroupGridWrapper = (props: GroupGridWrapperProps) => {
           : "md: grid grid-cols-[repeat(auto-fill,_350px)] place-content-around place-items-center gap-20"
       )}
     >
-      {children}
+      {children.length === 0 || children.every((child) => !child) ? (
+        <p className="absolute text-center text-xl">{emptyMessage}</p>
+      ) : (
+        children
+      )}
     </div>
   )
 }
