@@ -6,11 +6,17 @@ import {
 } from "../../api/specializations"
 import { useMemo } from "react"
 import { LegendTable } from "../../components/LegendTable"
+import { Error } from "../../components/Error"
+import { Loader } from "../../components/Loader"
 
 export const CalendarPage = () => {
   const { id } = useParams()
   const { data } = useGetSpecializationTimetable(Number(id))
-  const { data: legendData } = useGetSpecializationLegend(Number(id))
+  const {
+    data: legendData,
+    isLoading,
+    isError
+  } = useGetSpecializationLegend(Number(id))
 
   console.log(data)
 
@@ -26,6 +32,10 @@ export const CalendarPage = () => {
   }, [data])
 
   console.log(timetable)
+
+  if (isLoading) return <Loader />
+
+  if (isError) return <Error />
 
   return (
     <div>
