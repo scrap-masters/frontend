@@ -1,11 +1,16 @@
 import { Calendar } from "../../components/Calendar"
 import { useParams } from "react-router-dom"
-import { useGetSpecializationTimetable } from "../../api/specializations"
+import {
+  useGetSpecializationLegend,
+  useGetSpecializationTimetable
+} from "../../api/specializations"
 import { useMemo } from "react"
+import { LegendTable } from "../../components/LegendTable"
 
 export const CalendarPage = () => {
   const { id } = useParams()
   const { data } = useGetSpecializationTimetable(Number(id))
+  const { data: legendData } = useGetSpecializationLegend(Number(id))
 
   console.log(data)
 
@@ -22,5 +27,10 @@ export const CalendarPage = () => {
 
   console.log(timetable)
 
-  return <Calendar timetable={timetable} />
+  return (
+    <div>
+      <Calendar timetable={timetable} />
+      <LegendTable legendData={legendData?.data?.legend} />
+    </div>
+  )
 }
