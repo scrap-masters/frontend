@@ -1,13 +1,14 @@
 import React, { ChangeEvent, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { useGetLecturers } from "../../api/lecturers"
+import { Error } from "../../components/Error"
 import { GroupLabel } from "../../components/GroupLabel"
 import { Loader } from "../../components/Loader"
 import { SearchBar } from "../../components/SearchBar"
 import { routes } from "../../routing/routes"
 
 export const LecturersPage = () => {
-  const { data, isLoading } = useGetLecturers()
+  const { data, isLoading, isError } = useGetLecturers()
   const fetchedLecturers = data?.data
   const [lecturers, setLecturers] = useState<Array<string>>([])
 
@@ -16,6 +17,8 @@ export const LecturersPage = () => {
   }, [fetchedLecturers])
 
   if (isLoading) return <Loader />
+
+  if (isError) return <Error />
 
   const filter = (e: ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value.toLowerCase()

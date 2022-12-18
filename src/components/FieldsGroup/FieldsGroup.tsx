@@ -61,7 +61,12 @@ export const FieldsGroup = (props: FieldsGroupProps) => {
         />
       </div>
       <SearchBar filter={filter} placeholder="Szukaj kierunku..." />
-      <GroupGridWrapper length={fields.length}>
+      <GroupGridWrapper
+        length={fields.length}
+        emptyMessage={`Brak kierunków w trybie ${
+          isFullTimeOnSwitch ? "stacjonarnym" : "niestacjonarnym"
+        }.`}
+      >
         {fields.map(
           ({ id, name, year, isFullTime }, index) =>
             isFullTimeOnSwitch === isFullTime && (

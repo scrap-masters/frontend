@@ -50,6 +50,19 @@ export type SpecializationsTimetableProps = {
   }
 }
 
+export type SpecializationsLegendProps = {
+  data: {
+    id: number
+    legend: Array<LegendProps>
+  }
+}
+
+export type LegendProps = {
+  id: number
+  slug: string
+  fullName: string
+}
+
 export type LecturersProps = {
   data: Array<string>
 }

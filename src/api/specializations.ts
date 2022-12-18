@@ -1,7 +1,10 @@
 import { useFetch } from "../utils/reactQuery.utils"
 import { apiRoutes } from "../constants/api"
 import { pathToUrl } from "../utils/routes.utils"
-import { SpecializationsTimetableProps } from "../types/types"
+import {
+  SpecializationsLegendProps,
+  SpecializationsTimetableProps
+} from "../types/types"
 
 export const useGetSpecialziations = () =>
   useFetch(apiRoutes.getSpecializations)
@@ -15,4 +18,6 @@ export const useGetSpecializationTimetable = (id: number) =>
   )
 
 export const useGetSpecializationLegend = (id: number) =>
-  useFetch(pathToUrl(apiRoutes.getSpecializationLegend, { id }))
+  useFetch<SpecializationsLegendProps>(
+    pathToUrl(apiRoutes.getSpecializationLegend, { id })
+  )

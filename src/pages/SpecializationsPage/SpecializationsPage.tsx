@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useGetFieldSpecializations } from "../../api/fields"
+import { Error } from "../../components/Error"
 import { Group } from "../../components/Group"
 import { Loader } from "../../components/Loader"
 import { routes } from "../../routing/routes"
@@ -9,13 +10,12 @@ export const SpecializationsPage = () => {
   const {
     data: specializationsData,
     isLoading,
-    isError,
-    error
+    isError
   } = useGetFieldSpecializations(Number(id))
 
   if (isLoading) return <Loader />
 
-  if (isError) return <p>{error.message}</p>
+  if (isError) return <Error />
 
   return (
     <Group
