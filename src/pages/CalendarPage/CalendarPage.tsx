@@ -19,14 +19,15 @@ export const CalendarPage = () => {
     isError
   } = useGetSpecializationLegend(Number(id))
   const [group, setGroup] = useState<string>(null)
+  const timetableData = data?.data.timetable
 
-  const groups = data?.data?.timetable?.map((event) => event.group)
+  const groups = timetableData?.map((event) => event.group)
 
   const filteredGroups = groups?.filter(
     (group, index) => groups.indexOf(group) === index
   )
 
-  const filteredTimetable = data?.data.timetable.filter(
+  const filteredTimetable = timetableData?.filter(
     (event) => event.group === group
   )
 
