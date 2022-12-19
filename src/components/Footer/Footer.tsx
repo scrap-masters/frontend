@@ -1,5 +1,5 @@
 export const Footer = () => (
-  <footer className="bg-black py-16 text-white">
+  <footer className="bg-black py-16 text-white" data-testid="footer">
     <p className="text-center">
       Copyright @2022,&nbsp;
       <a
