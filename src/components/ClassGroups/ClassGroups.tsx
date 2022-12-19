@@ -24,7 +24,8 @@ export const ClassGroups = (props: ClassGroupsProps) => {
         className={classNames(
           "h-10",
           groups?.length > 5 && groups?.length < 10 && "min-w-[600px]",
-          groups?.length >= 10 && "min-w-[800px]"
+          groups?.length >= 10 && groups?.length < 15 &&"min-w-[800px]",
+          groups?.length >= 15 && "min-w-[1200px]"
         )}
       >
         <SwitchSelector
