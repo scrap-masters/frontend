@@ -27,6 +27,11 @@ export type SpecializationProps = {
   id: number
   name: string
   slug: string
+  field: FieldProps
+}
+
+export type SpecializationDataProps = {
+  data: SpecializationProps
 }
 
 export type SpecializationsProps = {

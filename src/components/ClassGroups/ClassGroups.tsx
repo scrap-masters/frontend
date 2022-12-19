@@ -9,7 +9,7 @@ interface ClassGroupsProps {
 export const ClassGroups = (props: ClassGroupsProps) => {
   const { groups, setGroup } = props
 
-  const options = groups?.map((group) => ({
+  const options = groups?.sort().map((group) => ({
     label: group,
     value: group,
     selectedBackgroundColor: "white"

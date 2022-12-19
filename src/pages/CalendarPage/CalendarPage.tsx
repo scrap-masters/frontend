@@ -1,6 +1,7 @@
 import { Calendar } from "../../components/Calendar"
 import { useParams } from "react-router-dom"
 import {
+  useGetSpecialization,
   useGetSpecializationLegend,
   useGetSpecializationTimetable
 } from "../../api/specializations"
@@ -12,12 +13,22 @@ import { ClassGroups } from "../../components/ClassGroups"
 
 export const CalendarPage = () => {
   const { id } = useParams()
-  const { data } = useGetSpecializationTimetable(Number(id))
+  const {
+    data,
+    isLoading: isTimetableLoading,
+    isError: isTimetableError
+  } = useGetSpecializationTimetable(Number(id))
   const {
     data: legendData,
-    isLoading,
-    isError
+    isLoading: isLegendLoading,
+    isError: isLegendError
   } = useGetSpecializationLegend(Number(id))
+  const {
+    data: specializationData,
+    isLoading: isSpecializationLoading,
+    isError: isSpecializationError
+  } = useGetSpecialization(Number(id))
+
   const [group, setGroup] = useState<string>(null)
   const timetableData = data?.data.timetable
 
@@ -33,11 +44,11 @@ export const CalendarPage = () => {
 
   console.log(filteredTimetable)
 
+  console.log(specializationData)
+
   useEffect(() => {
     setGroup(data?.data.timetable[0].group)
   }, [data])
-
-  // console.log(filteredGroups)
 
   const timetable = useMemo(() => {
     return filteredTimetable?.map((event) => ({
@@ -50,16 +61,17 @@ export const CalendarPage = () => {
     }))
   }, [filteredTimetable])
 
-  // console.log(timetable)
+  if (isTimetableLoading || isLegendLoading || isSpecializationLoading)
+    return <Loader />
 
-  if (isLoading) return <Loader />
-
-  if (isError) return <Error />
-
-  console.log(group)
+  if (isTimetableError || isLegendError || isSpecializationError)
+    return <Error />
 
   return (
     <div>
+      <h2 className="mb-10 text-center text-4xl font-semibold">
+        {specializationData.data.field.name} ({specializationData.data.slug})
+      </h2>
       <ClassGroups groups={filteredGroups} setGroup={setGroup} />
       <Calendar timetable={timetable} />
       <LegendTable legendData={legendData?.data?.legend} />
