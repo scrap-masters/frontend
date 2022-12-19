@@ -18,11 +18,13 @@ export const ClassGroups = (props: ClassGroupsProps) => {
     setGroup(newValue)
   }
   return (
-    <SwitchSelector
-      onChange={onChange}
-      options={options}
-      backgroundColor={"#EFF0F4"}
-      selectedFontColor={"black"}
-    />
+    <div className="mb-5 h-10">
+      <SwitchSelector
+        onChange={onChange}
+        options={options}
+        backgroundColor={"#EFF0F4"}
+        selectedFontColor={"black"}
+      />
+    </div>
   )
 }
