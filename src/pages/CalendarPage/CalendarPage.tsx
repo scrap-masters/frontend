@@ -13,16 +13,19 @@ import { ClassGroups } from "../../components/ClassGroups"
 
 export const CalendarPage = () => {
   const { id } = useParams()
+
   const {
     data,
     isLoading: isTimetableLoading,
     isError: isTimetableError
   } = useGetSpecializationTimetable(Number(id))
+
   const {
     data: legendData,
     isLoading: isLegendLoading,
     isError: isLegendError
   } = useGetSpecializationLegend(Number(id))
+  
   const {
     data: specializationData,
     isLoading: isSpecializationLoading,
