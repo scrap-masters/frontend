@@ -1,4 +1,5 @@
 import SwitchSelector from "react-switch-selector"
+import classNames from "classnames"
 
 interface ClassGroupsProps {
   groups: Array<string>
@@ -18,13 +19,21 @@ export const ClassGroups = (props: ClassGroupsProps) => {
     setGroup(newValue)
   }
   return (
-    <div className="mb-5 h-10">
-      <SwitchSelector
-        onChange={onChange}
-        options={options}
-        backgroundColor={"#EFF0F4"}
-        selectedFontColor={"black"}
-      />
+    <div className="mb-5 overflow-auto ">
+      <div
+        className={classNames(
+          "h-10",
+          groups?.length > 5 && groups?.length < 10 && "min-w-[600px]",
+          groups?.length >= 10 && "min-w-[800px]"
+        )}
+      >
+        <SwitchSelector
+          onChange={onChange}
+          options={options}
+          backgroundColor={"#EFF0F4"}
+          selectedFontColor={"black"}
+        />
+      </div>
     </div>
   )
 }
