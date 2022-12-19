@@ -42,10 +42,6 @@ export const CalendarPage = () => {
     (event) => event.group === group
   )
 
-  console.log(filteredTimetable)
-
-  console.log(specializationData)
-
   useEffect(() => {
     setGroup(data?.data.timetable[0].group)
   }, [data])
