@@ -25,7 +25,7 @@ export const CalendarPage = () => {
     isLoading: isLegendLoading,
     isError: isLegendError
   } = useGetSpecializationLegend(Number(id))
-  
+
   const {
     data: specializationData,
     isLoading: isSpecializationLoading,
