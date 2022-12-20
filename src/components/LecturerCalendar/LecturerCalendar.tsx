@@ -42,7 +42,7 @@ export const LecturerCalendar = (props: CalendarProps) => {
         minute: "2-digit",
         hour12: false
       }}
-      eventClassNames="bg-transparent border-transparent !shadow-none flex gap-20"
+      eventClassNames="bg-transparent border-transparent !shadow-none"
       dayHeaderContent={(hookProps) => <CalendarDayHeader {...hookProps} />}
       events={timetable}
       eventContent={(hookProps) => <LecturerCalendarEvent {...hookProps} />}

@@ -6,7 +6,7 @@ import { LecturerCalendar } from "../../components/LecturerCalendar"
 export const LecturerCalendarPage = () => {
   const { name } = useParams()
   const { data } = useGetLecturersPlan(name)
-  console.log(data)
+  const lecturer = data?.data.timetable[0].lecturer
 
   const filteredTimetable = Array.from(
     new Set(data?.data.timetable.map((event) => event.start))
@@ -19,8 +19,6 @@ export const LecturerCalendarPage = () => {
     }
   })
 
-  console.log(filteredTimetable)
-
   const timetable = useMemo(() => {
     return filteredTimetable.map((event) => ({
       start: event.start,
@@ -32,10 +30,9 @@ export const LecturerCalendarPage = () => {
     }))
   }, [filteredTimetable])
 
-  console.log(timetable)
-
   return (
     <div>
+      <h2 className="mb-10 text-center text-4xl font-semibold">{lecturer}</h2>
       <LecturerCalendar timetable={timetable} />
     </div>
   )
