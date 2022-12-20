@@ -14,12 +14,17 @@ export const LecturerCalendarEvent = (props: EventContentArg) => {
   const {
     event: { extendedProps, title }
   } = props
-  const { type, room, group } = extendedProps
+  const { data } = extendedProps
+
+  const type = data[0].type
+  const room = data[0].room
+
+  console.log(extendedProps)
 
   return (
     <div
       className={classNames(
-        "flex w-20 flex-col gap-2 rounded-[0.75rem] p-2",
+        "flex h-full w-full flex-col gap-2 rounded-[0.75rem] p-2",
         eventTypeColors[type] || "bg-gray-400"
       )}
       data-testid="calendar-event"
@@ -30,7 +35,9 @@ export const LecturerCalendarEvent = (props: EventContentArg) => {
         </p>
         <p>{room}</p>
       </div>
-      <p>{group}</p>
+      {data?.map((event) => (
+        <p key={event.id}>{event.group}</p>
+      ))}
     </div>
   )
 }

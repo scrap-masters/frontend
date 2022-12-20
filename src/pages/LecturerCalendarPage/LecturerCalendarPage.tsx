@@ -8,16 +8,31 @@ export const LecturerCalendarPage = () => {
   const { data } = useGetLecturersPlan(name)
   console.log(data)
 
+  const filteredTimetable = Array.from(
+    new Set(data?.data.timetable.map((event) => event.start))
+  ).map((event) => {
+    return {
+      start: event,
+      data: data?.data.timetable
+        .filter((ev) => event == ev.start)
+        .map((data) => data)
+    }
+  })
+
+  console.log(filteredTimetable)
+
   const timetable = useMemo(() => {
-    return data?.data.timetable.map((event) => ({
+    return filteredTimetable.map((event) => ({
       start: event.start,
-      end: event.end,
-      title: event.title,
+      end: event.data[0].end,
+      title: event.data[0].title,
       extendedProps: {
         ...event
       }
     }))
-  }, [data])
+  }, [filteredTimetable])
+
+  console.log(timetable)
 
   return (
     <div>
