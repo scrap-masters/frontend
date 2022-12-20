@@ -71,3 +71,7 @@ export type LegendProps = {
 export type LecturersProps = {
   data: Array<string>
 }
+
+export type LecturerTimetableProps = {
+  data: { timetable: Array<EventInput> }
+}
