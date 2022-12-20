@@ -1,7 +1,7 @@
 import { useMemo } from "react"
 import { useParams } from "react-router-dom"
 import { useGetLecturersPlan } from "../../api/lecturers"
-import { Calendar } from "../../components/Calendar"
+import { LecturerCalendar } from "../../components/LecturerCalendar"
 
 export const LecturerCalendarPage = () => {
   const { name } = useParams()
@@ -21,7 +21,7 @@ export const LecturerCalendarPage = () => {
 
   return (
     <div>
-      <Calendar timetable={timetable} />
+      <LecturerCalendar timetable={timetable} />
     </div>
   )
 }
