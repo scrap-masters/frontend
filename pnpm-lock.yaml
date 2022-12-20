@@ -30,6 +30,7 @@ specifiers:
   eslint-plugin-react: ^7.31.10
   eslint-plugin-react-hooks: ^4.6.0
   eslint-plugin-tailwindcss: ^3.6.2
+  favicons-webpack-plugin: ^6.0.0
   file-loader: ^6.2.0
   fork-ts-checker-webpack-plugin: ^7.2.13
   html-webpack-plugin: ^5.5.0
@@ -106,6 +107,7 @@ devDependencies:
   eslint-plugin-react: 7.31.10_eslint@8.22.0
   eslint-plugin-react-hooks: 4.6.0_eslint@8.22.0
   eslint-plugin-tailwindcss: 3.6.2_ts-node@10.9.1
+  favicons-webpack-plugin: 6.0.0_webpack@5.74.0
   file-loader: 6.2.0_webpack@5.74.0
   fork-ts-checker-webpack-plugin: 7.2.13_qqxisngxjbp7lstdk7boexbu3e
   html-webpack-plugin: 5.5.0_webpack@5.74.0
@@ -2883,6 +2885,11 @@ packages:
   /asynckit/0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
 
+  /author-regex/1.0.0:
+    resolution: {integrity: sha512-KbWgR8wOYRAPekEmMXrYYdc7BRyhn2Ftk7KWfMUnQ43hFdojWEFRxhhRUm3/OFEdPa1r0KAvTTg9YQK57xTe0g==}
+    engines: {node: '>=0.8'}
+    dev: true
+
   /autoprefixer/10.4.12_postcss@8.4.18:
     resolution: {integrity: sha512-WrCGV9/b97Pa+jtwf5UGaRjgQIg7OK3D06GnoYoZNcG1Xb8Gt3EfuKjlhh9i/VtT16g6PYjZ69jdJ2g8FxSC4Q==}
     engines: {node: ^10 || ^12 || >=14}
@@ -4706,6 +4713,21 @@ packages:
     dependencies:
       reusify: 1.0.4
 
+  /favicons-webpack-plugin/6.0.0_webpack@5.74.0:
+    resolution: {integrity: sha512-wryICW2NjR9BORYjP1PN3CDbjVzXDxcemLMWQBdLJGhZlj0sYF7NNq+ddQtO/YJvBurYQ3YR1df5uXZRmcF9hw==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      favicons: ^7.0.1
+      webpack: ^5.0.0
+    dependencies:
+      find-root: 1.1.0
+      parse-author: 2.0.0
+      parse5: 7.1.1
+      webpack: 5.74.0_webpack-cli@4.10.0
+    optionalDependencies:
+      html-webpack-plugin: 5.5.0_webpack@5.74.0
+    dev: true
+
   /faye-websocket/0.11.4:
     resolution: {integrity: sha512-CzbClwlXAuiRQAlUyfqPgvPoNKTckTPGfwZV4ZdAhVcP2lh9KUxJg2b5GkE7XbjKQ3YJnQ9z6D9ntLAlB+tP8g==}
     engines: {node: '>=0.8.0'}
@@ -4829,6 +4851,10 @@ packages:
       commondir: 1.0.1
       make-dir: 3.1.0
       pkg-dir: 4.2.0
+    dev: true
+
+  /find-root/1.1.0:
+    resolution: {integrity: sha512-NKfW6bec6GfKc0SGx1e07QZY9PE99u0Bft/0rzSD5k3sO/vwkVUpDUKVm5Gpp5Ue3YfShPFTX2070tDs5kB9Ng==}
     dev: true
 
   /find-up/4.1.0:
@@ -7305,6 +7331,13 @@ packages:
     engines: {node: '>=6'}
     dependencies:
       callsites: 3.1.0
+    dev: true
+
+  /parse-author/2.0.0:
+    resolution: {integrity: sha512-yx5DfvkN8JsHL2xk2Os9oTia467qnvRgey4ahSm2X8epehBLx/gWLcy5KI+Y36ful5DzGbCS6RazqZGgy1gHNw==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      author-regex: 1.0.0
     dev: true
 
   /parse-json/5.2.0:
