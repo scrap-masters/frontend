@@ -11,9 +11,8 @@ export const GoogleButton = (props: GoogleButtonProps) => {
   console.log(timetable)
 
   const config = {
-    clientId:
-      "893746188758-sfk7v5gk17isn2t25legvrk0on9da71n.apps.googleusercontent.com",
-    apiKey: "AIzaSyDuTI3mui90Xct9E43Y8sw7Yzh80ZCOJd8",
+    clientId: process.env.CLIENT_ID,
+    apiKey: process.env.API_KEY,
     scope: "https://www.googleapis.com/auth/calendar",
     discoveryDocs: [
       "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"
@@ -24,9 +23,28 @@ export const GoogleButton = (props: GoogleButtonProps) => {
 
   const handleClick = () => {
     apiCalendar.handleAuthClick()
-    const { timeZone } = Intl.DateTimeFormat().resolvedOptions()
-    console.log(timeZone)
   }
 
-  return <button onClick={handleClick}>GoogleButton</button>
+  const exportEvents = () =>
+    apiCalendar.onLoad(() => {
+      const { timeZone } = Intl.DateTimeFormat().resolvedOptions()
+      const event = {
+        start: {
+          timeZone,
+          dateTime: "2022-12-20T11:30:00"
+        },
+        end: {
+          timeZone,
+          dateTime: "2022-12-20T13:00:00"
+        }
+      }
+      apiCalendar.createEvent(event)
+    })
+
+  return (
+    <>
+      <button onClick={handleClick}>GoogleButton</button>
+      <button onClick={exportEvents}>export</button>
+    </>
+  )
 }
