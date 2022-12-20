@@ -5,5 +5,6 @@ export const routes = {
   calendar: (id?: number) => (id ? `/calendar/${id}` : "/calendar/:id"),
   specializations: (id?: number) =>
     id ? `/fields/${id}/specializations` : "/fields/:id/specializations",
-  lecturers: (name?: string) => (name ? `/lecturers/${name}` : "/lecturers")
+  lecturers: (name?: string) => (name ? `/lecturers/${name}` : "/lecturers"),
+  lecturerCalendar: () => `/lecturers/:name`
 }
