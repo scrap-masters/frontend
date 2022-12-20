@@ -19,8 +19,6 @@ export const LecturerCalendarEvent = (props: EventContentArg) => {
   const type = data[0].type
   const room = data[0].room
 
-  console.log(extendedProps)
-
   return (
     <div
       className={classNames(

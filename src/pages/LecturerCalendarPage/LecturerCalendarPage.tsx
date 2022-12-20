@@ -1,11 +1,13 @@
 import { useMemo } from "react"
 import { useParams } from "react-router-dom"
 import { useGetLecturersPlan } from "../../api/lecturers"
+import { Error } from "../../components/Error"
 import { LecturerCalendar } from "../../components/LecturerCalendar"
+import { Loader } from "../../components/Loader"
 
 export const LecturerCalendarPage = () => {
   const { name } = useParams()
-  const { data } = useGetLecturersPlan(name)
+  const { data, isLoading, isError } = useGetLecturersPlan(name)
   const lecturer = data?.data.timetable[0].lecturer
 
   const filteredTimetable = Array.from(
@@ -29,6 +31,10 @@ export const LecturerCalendarPage = () => {
       }
     }))
   }, [filteredTimetable])
+
+  if (isLoading) return <Loader />
+
+  if (isError) return <Error />
 
   return (
     <div>
