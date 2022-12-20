@@ -8,6 +8,7 @@ import { useMemo } from "react"
 import { LegendTable } from "../../components/LegendTable"
 import { Error } from "../../components/Error"
 import { Loader } from "../../components/Loader"
+import { GoogleButton } from "../../components/GoogleButton"
 
 export const CalendarPage = () => {
   const { id } = useParams()
@@ -17,8 +18,6 @@ export const CalendarPage = () => {
     isLoading,
     isError
   } = useGetSpecializationLegend(Number(id))
-
-  console.log(data)
 
   const timetable = useMemo(() => {
     return data?.data.timetable.map((event) => ({
@@ -31,14 +30,13 @@ export const CalendarPage = () => {
     }))
   }, [data])
 
-  console.log(timetable)
-
   if (isLoading) return <Loader />
 
   if (isError) return <Error />
 
   return (
     <div>
+      <GoogleButton timetable={timetable} />
       <Calendar timetable={timetable} />
       <LegendTable legendData={legendData?.data?.legend} />
     </div>
