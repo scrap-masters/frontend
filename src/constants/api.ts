@@ -9,5 +9,6 @@ export const apiRoutes = {
   getSpecialization: "/specializations/:id",
   getSpecializationTimetable: "/specializations/:id/timetable",
   getSpecializationLegend: "/specializations/:id/legend",
-  getLecturers: "/lecturers"
+  getLecturers: "/lecturers",
+  getLecturersPlan: "/lecturers/:name"
 }

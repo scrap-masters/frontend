@@ -27,6 +27,11 @@ export type SpecializationProps = {
   id: number
   name: string
   slug: string
+  field: FieldProps
+}
+
+export type SpecializationDataProps = {
+  data: SpecializationProps
 }
 
 export type SpecializationsProps = {
@@ -65,4 +70,8 @@ export type LegendProps = {
 
 export type LecturersProps = {
   data: Array<string>
+}
+
+export type LecturerTimetableProps = {
+  data: { timetable: Array<EventInput> }
 }
