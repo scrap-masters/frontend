@@ -1,123 +1,66 @@
 import { EventInput } from "@fullcalendar/react"
-import { gapi, loadAuth2 } from "gapi-script"
-import { useEffect, useState } from "react"
+import moment from "moment"
+import ICalendarLink from "react-icalendar-link"
+import { useState } from "react"
+const ics = require("ics")
+import ICalParser from 'ical-js-parser';
 
 export interface GoogleButtonProps {
   timetable: Array<EventInput>
 }
 
 export const GoogleButton = (props: GoogleButtonProps) => {
-  const [user, setUser] = useState(null)
   const { timetable } = props
+  const [text, setText] = useState(null)
 
-  useEffect(() => {
-    const setAuth2 = async () => {
-      const auth2 = await loadAuth2(gapi, process.env.CLIENT_ID, "")
-      if (auth2.isSignedIn.get()) {
-        updateUser(auth2.currentUser.get())
-      } else {
-        attachSignin(document.getElementById("button"), auth2)
+  // console.log(timetable)
+
+  const exportToICS = () => {
+    const events = []
+    timetable.forEach((data) => {
+      const event = data.extendedProps
+
+      const start = moment(event.start)
+        .format("YYYY-M-D-H-m")
+        .split("-")
+        .map(Number)
+
+      const end = moment(event.end)
+        .format("YYYY-M-D-H-m")
+        .split("-")
+        .map(Number)
+
+      const newEvent = {
+        title: event.title,
+        start: start,
+        duration: { hours: 1, minutes: 30 }
       }
-    }
-    setAuth2()
-  }, [])
 
-  useEffect(() => {
-    if (!user) {
-      const setAuth2 = async () => {
-        const auth2 = await loadAuth2(gapi, process.env.REACT_APP_CLIENT_ID, "")
-        attachSignin(document.getElementById("button"), auth2)
-      }
-      setAuth2()
-    }
-  }, [user])
-
-  const updateUser = (currentUser) => {
-    const name = currentUser.getBasicProfile().getName()
-    const accessToken = currentUser.xc.access_token
-    const calendarID = currentUser.getBasicProfile().getEmail()
-    setUser({
-      name,
-      calendarID,
-      accessToken
+      events.push(newEvent)
     })
+
+    console.log(ics.createEvents(events))
+    // setText(ics.createEvents(events))
+    // const result = ICalParser.toString(events)
+    console.log(result)
   }
 
-  const attachSignin = (element, auth2) => {
-    auth2.attachClickHandler(
-      element,
-      {},
-      (googleUser) => {
-        console.log(googleUser)
-      },
-      (error) => {
-        console.log(JSON.stringify(error))
-      }
-    )
-  }
+  console.log(text)
 
-  const exportEvents = () => {
-    const { timeZone } = Intl.DateTimeFormat().resolvedOptions()
-    const event = timetable[0].extendedProps
-    const newEvent = [
-      {
-        summary: event.title,
-        location: event.room,
-        start: {
-          timeZone,
-          dateTime: event.start
-        },
-        end: {
-          timeZone,
-          dateTime: event.end
-        }
-      },
-      {
-        summary: event.title,
-        location: event.room,
-        start: {
-          timeZone,
-          dateTime: event.start
-        },
-        end: {
-          timeZone,
-          dateTime: event.end
-        }
-      }
-    ]
-    const initiate = () => {
-      gapi.client
-        .request({
-          path: `https://www.googleapis.com/calendar/v3/calendars/${user.calendarID}/events`,
-          method: "POST",
-          body: newEvent,
-          headers: {
-            "Content-type": "application/json",
-            Authorization: `Bearer ${user.accessToken}`
-          }
-        })
-        .then(
-          (response) => {
-            return [true, response]
-          },
-          function (err) {
-            console.log(err)
-            return [false, err]
-          }
-        )
-    }
-    gapi.load("client", initiate)
+  const events = {
+    title: "My Title",
+    description: "My Description",
+    startTime: "2022-12-20T10:30:00+10:00",
+    location: "10 Carlotta St, Artarmon NSW 2064, Australia"
   }
 
   return (
     <div>
-      <button className="bg-blue-500" id="button">
-        Login
+      <button className="bg-gray-500" onClick={exportToICS}>
+        Export to ICS
       </button>
-      {user && <p>{user.name}</p>}
-      <button className="ml-2 bg-blue-500" onClick={exportEvents}>
-        export
-      </button>
+      <p>{text?.value}</p>
+      <ICalendarLink rawContent={text?.value}>Add to Calendar</ICalendarLink>
     </div>
   )
 }
