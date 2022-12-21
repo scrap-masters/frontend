@@ -13,6 +13,7 @@ export const GoogleButton = (props: GoogleButtonProps) => {
   const config = {
     clientId: process.env.CLIENT_ID,
     apiKey: process.env.API_KEY,
+    accessToken: process.env.ACCESS_TOKEN,
     scope: "https://www.googleapis.com/auth/calendar",
     discoveryDocs: [
       "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"
@@ -25,26 +26,34 @@ export const GoogleButton = (props: GoogleButtonProps) => {
     apiCalendar.handleAuthClick()
   }
 
-  const exportEvents = () =>
-    apiCalendar.onLoad(() => {
-      const { timeZone } = Intl.DateTimeFormat().resolvedOptions()
-      const event = {
+  const exportEvents = () => {
+    const { timeZone } = Intl.DateTimeFormat().resolvedOptions()
+    timetable.forEach((data) => {
+      const event = data.extendedProps
+      const newEvent = {
+        summary: event.title,
+        location: event.room,
         start: {
           timeZone,
-          dateTime: "2022-12-20T11:30:00"
+          dateTime: event.start
         },
         end: {
           timeZone,
-          dateTime: "2022-12-20T13:00:00"
+          dateTime: event.end
         }
       }
-      apiCalendar.createEvent(event)
+      apiCalendar.createEvent(newEvent).then((res) => console.log(res))
     })
+  }
 
   return (
-    <>
-      <button onClick={handleClick}>GoogleButton</button>
-      <button onClick={exportEvents}>export</button>
-    </>
+    <div>
+      <button className="bg-blue-500" onClick={handleClick}>
+        Login
+      </button>
+      <button className="ml-2 bg-blue-500" onClick={exportEvents}>
+        export
+      </button>
+    </div>
   )
 }
