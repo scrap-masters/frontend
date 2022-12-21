@@ -43,7 +43,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "index.html"
     }),
-    new FaviconsWebpackPlugin("./favicon.ico"),
+    new FaviconsWebpackPlugin("./favicon-32x32.png"),
     new Dotenv()
   ]
 }
