@@ -10,7 +10,7 @@ import { LegendTable } from "../../components/LegendTable"
 import { Error } from "../../components/Error"
 import { Loader } from "../../components/Loader"
 import { ClassGroups } from "../../components/ClassGroups"
-import { GoogleButton } from "../../components/GoogleButton"
+import { GoogleButton } from "../../components/ExportButton"
 
 export const CalendarPage = () => {
   const { id } = useParams()
