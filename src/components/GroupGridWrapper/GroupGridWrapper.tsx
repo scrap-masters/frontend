@@ -9,9 +9,6 @@ interface GroupGridWrapperProps {
 export const GroupGridWrapper = (props: GroupGridWrapperProps) => {
   const { length, children, emptyMessage = "Brak elementów." } = props
 
-  console.log(children.length)
-  console.log(children)
-
   return (
     <div
       className={classNames(
