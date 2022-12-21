@@ -69,12 +69,11 @@ export const CalendarPage = () => {
 
   return (
     <div>
+      <GoogleButton timetable={timetable} />
       <h2 className="mb-10 text-center text-4xl font-semibold">
         {specializationData.data.field.name} ({specializationData.data.slug})
       </h2>
-      <div className="float-right">
-        <GoogleButton timetable={timetable} />
-      </div>
+      <div className="float-right"></div>
       <ClassGroups groups={filteredGroups} setGroup={setGroup} />
       <Calendar timetable={timetable} />
       <LegendTable legendData={legendData?.data?.legend} />

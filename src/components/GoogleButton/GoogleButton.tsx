@@ -46,8 +46,8 @@ export const GoogleButton = (props: GoogleButtonProps) => {
   console.log(events)
 
   return (
-    <div>
-      <CSVLink data={events}>Download me</CSVLink>;
+    <div className="float-right mt-1 rounded-xl bg-gray-300 px-2 py-1">
+      <CSVLink data={events}>Export to CSV File</CSVLink>
     </div>
   )
 }
