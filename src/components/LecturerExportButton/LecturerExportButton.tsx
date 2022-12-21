@@ -24,7 +24,6 @@ export const LecturerExportButton = (props: GoogleButtonProps) => {
     ]
   ]
 
-  console.log(timetable)
   timetable.forEach((data) => {
     const event = data.extendedProps.data
     const startDate = moment(data.start).format("DD/MM/YYYY")
@@ -45,8 +44,6 @@ export const LecturerExportButton = (props: GoogleButtonProps) => {
       "FALSE"
     ])
   })
-
-  console.log(events)
 
   return (
     <div className="float-right mt-1 rounded-xl bg-gray-300 px-2 py-1">
