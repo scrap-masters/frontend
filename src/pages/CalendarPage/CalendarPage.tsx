@@ -67,12 +67,12 @@ export const CalendarPage = () => {
   if (isTimetableError || isLegendError || isSpecializationError)
     return <Error />
 
+  const fieldName = `${specializationData.data.field.name} (${specializationData.data.slug})`
+
   return (
     <div>
-      <GoogleButton timetable={timetable} />
-      <h2 className="mb-10 text-center text-4xl font-semibold">
-        {specializationData.data.field.name} ({specializationData.data.slug})
-      </h2>
+      <GoogleButton timetable={timetable} filename={fieldName} />
+      <h2 className="mb-10 text-center text-4xl font-semibold">{fieldName}</h2>
       <div className="float-right"></div>
       <ClassGroups groups={filteredGroups} setGroup={setGroup} />
       <Calendar timetable={timetable} />

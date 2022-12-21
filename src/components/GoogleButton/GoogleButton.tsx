@@ -4,10 +4,11 @@ import { CSVLink } from "react-csv"
 
 export interface GoogleButtonProps {
   timetable: Array<EventInput>
+  filename: string
 }
 
 export const GoogleButton = (props: GoogleButtonProps) => {
-  const { timetable } = props
+  const { timetable, filename } = props
 
   const events = [
     [
@@ -47,7 +48,9 @@ export const GoogleButton = (props: GoogleButtonProps) => {
 
   return (
     <div className="float-right mt-1 rounded-xl bg-gray-300 px-2 py-1">
-      <CSVLink data={events}>Export to CSV File</CSVLink>
+      <CSVLink data={events} filename={`${filename}_Plan_Zajęć`.split(" ")}>
+        Export to CSV File
+      </CSVLink>
     </div>
   )
 }
