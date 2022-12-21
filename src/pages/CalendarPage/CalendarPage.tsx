@@ -10,7 +10,7 @@ import { LegendTable } from "../../components/LegendTable"
 import { Error } from "../../components/Error"
 import { Loader } from "../../components/Loader"
 import { ClassGroups } from "../../components/ClassGroups"
-import { GoogleButton } from "../../components/ExportButton"
+import { ExportButton } from "../../components/ExportButton"
 
 export const CalendarPage = () => {
   const { id } = useParams()
@@ -71,7 +71,7 @@ export const CalendarPage = () => {
 
   return (
     <div>
-      <GoogleButton timetable={timetable} filename={fieldName} />
+      <ExportButton timetable={timetable} filename={fieldName} />
       <h2 className="mb-10 text-center text-4xl font-semibold">{fieldName}</h2>
       <div className="float-right"></div>
       <ClassGroups groups={filteredGroups} setGroup={setGroup} />
