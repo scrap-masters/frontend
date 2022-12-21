@@ -7,7 +7,7 @@ export interface GoogleButtonProps {
   filename: string
 }
 
-export const ExportButton = (props: GoogleButtonProps) => {
+export const LecturerExportButton = (props: GoogleButtonProps) => {
   const { timetable, filename } = props
 
   const events = [
@@ -25,20 +25,22 @@ export const ExportButton = (props: GoogleButtonProps) => {
   ]
 
   timetable.forEach((data) => {
-    const event = data.extendedProps
-    const startDate = moment(event.start).format("DD/MM/YYYY")
-    const startTime = moment(event.start).format("hh:mm:ss a")
-    const endDate = moment(event.end).format("DD/MM/YYYY")
-    const endTime = moment(event.end).format("hh:mm:ss a")
+    const event = data.extendedProps.data
+    const startDate = moment(data.start).format("DD/MM/YYYY")
+    const startTime = moment(data.start).format("hh:mm:ss a")
+    const endDate = moment(data.end).format("DD/MM/YYYY")
+    const endTime = moment(data.end).format("hh:mm:ss a")
+    const groups = event.map((e) => e.group).toString()
+
     events.push([
-      event.title,
+      data.title,
       startDate,
       startTime,
       endDate,
       endTime,
       "FALSE",
-      event.lecturer,
-      event.room,
+      groups,
+      event[0].room,
       "FALSE"
     ])
   })

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import { useGetLecturersPlan } from "../../api/lecturers"
 import { Error } from "../../components/Error"
 import { LecturerCalendar } from "../../components/LecturerCalendar"
+import { LecturerExportButton } from "../../components/LecturerExportButton"
 import { Loader } from "../../components/Loader"
 
 export const LecturerCalendarPage = () => {
@@ -38,6 +39,7 @@ export const LecturerCalendarPage = () => {
 
   return (
     <div>
+      <LecturerExportButton timetable={timetable} filename={lecturer} />
       <h2 className="mb-10 text-center text-4xl font-semibold">{lecturer}</h2>
       <LecturerCalendar timetable={timetable} />
     </div>
