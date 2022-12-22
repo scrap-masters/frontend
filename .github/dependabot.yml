@@ -7,6 +7,6 @@ updates:
       interval: monthly
       time: "07:30"
     commit-message:
-      prefix: "#26 - (npm) "
+      prefix: "#71 - (npm) "
     target-branch: main
     open-pull-requests-limit: 1
