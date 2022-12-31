@@ -1,5 +1,7 @@
 import { EventContentArg } from "@fullcalendar/react"
 import classNames from "classnames"
+import { Link } from "react-router-dom"
+import { routes } from "../../routing/routes"
 
 const eventTypeColors = {
   ćw: "bg-lime-500",
@@ -30,8 +32,9 @@ export const CalendarEvent = (props: EventContentArg) => {
         </span>
         <span className="text-right">{room}</span>
       </p>
-
-      <span>{lecturer}</span>
+      <Link to={routes.lecturerCalendar(lecturer)} className="underline">
+        {lecturer}
+      </Link>
     </div>
   )
 }

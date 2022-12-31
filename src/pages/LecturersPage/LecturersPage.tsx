@@ -39,10 +39,8 @@ export const LecturersPage = () => {
       <div className="flex justify-center">
         <ul className="mt-10 text-2xl font-semibold leading-[45px]">
           {lecturers?.map((lecturer) => (
-            <li className="text-blue-600" key={lecturer}>
-              <Link to={routes.lecturers(lecturer)} key={lecturer}>
-                {lecturer}
-              </Link>
+            <li key={lecturer} className="text-blue-600">
+              <Link to={routes.lecturerCalendar(lecturer)}>{lecturer}</Link>
             </li>
           ))}
         </ul>
