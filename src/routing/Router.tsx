@@ -7,6 +7,7 @@ import { CalendarPage } from "../pages/CalendarPage"
 import { SpecializationsPage } from "../pages/SpecializationsPage"
 import { LecturersPage } from "../pages/LecturersPage"
 import { LecturerCalendarPage } from "../pages/LecturerCalendarPage"
+import { DownloadCSVFile } from "../pages/DownloadCSVFile"
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
       {
         path: routes.lecturerCalendar(),
         element: <LecturerCalendarPage />
+      },
+      {
+        path: routes.downloadCSVFile(),
+        element: <DownloadCSVFile />
       }
     ]
   }
