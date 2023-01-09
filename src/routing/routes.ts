@@ -7,5 +7,6 @@ export const routes = {
     id ? `/fields/${id}/specializations` : "/fields/:id/specializations",
   lecturers: () => "/lecturer",
   lecturerCalendar: (name?: string) =>
-    name ? `/lecturers/${name}` : "/lecturers/:name"
+    name ? `/lecturers/${name}` : "/lecturers/:name",
+  downloadCSVFile: () => "/calendar/:id/:group"
 }

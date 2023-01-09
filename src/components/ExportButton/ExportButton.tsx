@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react"
 import { EventInput } from "@fullcalendar/react"
 import moment from "moment"
 import { CSVLink } from "react-csv"
@@ -5,10 +6,13 @@ import { CSVLink } from "react-csv"
 export interface GoogleButtonProps {
   timetable: Array<EventInput>
   filename: string
+  instantDownload?: boolean
 }
 
 export const ExportButton = (props: GoogleButtonProps) => {
-  const { timetable, filename } = props
+  const { timetable, filename, instantDownload = false } = props
+  const btnRef = useRef(null)
+  useEffect(() => btnRef.current?.click(), [btnRef])
 
   const events = [
     [
@@ -49,7 +53,7 @@ export const ExportButton = (props: GoogleButtonProps) => {
         data={events}
         filename={`${filename}_Plan_Zajęć`.replace(/ /g, "_")}
       >
-        Export to CSV File
+        {instantDownload ? <span ref={btnRef} /> : "Export to CSV File"}
       </CSVLink>
     </div>
   )
