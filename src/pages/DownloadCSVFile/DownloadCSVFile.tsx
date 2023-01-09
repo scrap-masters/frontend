@@ -14,7 +14,7 @@ export const DownloadCSVFile = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    navigate(routes.calendar(Number(id)))
+    if (timetable) navigate(routes.calendar(Number(id)))
   })
 
   const {
