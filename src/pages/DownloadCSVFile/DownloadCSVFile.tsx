@@ -1,5 +1,5 @@
-import React, { useMemo } from "react"
-import { useParams } from "react-router-dom"
+import { useEffect, useMemo } from "react"
+import { useParams, useNavigate } from "react-router-dom"
 import {
   useGetSpecialization,
   useGetSpecializationTimetable
@@ -7,9 +7,15 @@ import {
 import { ExportButton } from "../../components/ExportButton"
 import { Loader } from "../../components/Loader"
 import { Error } from "../../components/Error"
+import { routes } from "../../routing/routes"
 
 export const DownloadCSVFile = () => {
   const { id, group } = useParams()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    navigate(routes.calendar(Number(id)))
+  })
 
   const {
     data,
