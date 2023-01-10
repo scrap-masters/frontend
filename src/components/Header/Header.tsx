@@ -26,22 +26,22 @@ export const Header = () => {
     <header className="bg-main text-white">
       <div className="flex h-[115px] items-center px-12">
         <div className="grid w-full grid-cols-3 place-content-between">
-          <button onClick={toggleMobileNavbar} className="-ml-7 lg:hidden">
+          <button onClick={toggleMobileNavbar} className="z-10 -ml-7 xl:hidden">
             <GoThreeBars size="40" />
           </button>
           <NavLink
             to={routes.root()}
-            className="-mt-1  place-self-center lg:col-start-2"
+            className="-mt-1 place-self-center lg:col-start-2"
           >
-            <div className="flex items-center justify-center gap-2">
-              <img src={Logo} alt="logo" width="90" />
-              <h1 className=" whitespace-nowrap text-center text-3xl font-semibold sm:text-4xl">
+            <div className="ml-5 flex items-center justify-center sm:ml-0 sm:gap-2">
+              <img src={Logo} alt="logo" className="w-20 sm:w-24" />
+              <h1 className=" whitespace-nowrap text-center text-2xl font-semibold sm:text-4xl">
                 CWUP - Plan zajęć
               </h1>
             </div>
           </NavLink>
           <nav>
-            <ul className="hidden h-full items-center justify-end gap-12 text-xl lg:flex">
+            <ul className="hidden h-full items-center justify-end gap-12 text-xl xl:flex">
               {navLinks.map((navLink) => (
                 <li key={navLink.path}>
                   <NavLink to={navLink.path}>{navLink.name}</NavLink>
