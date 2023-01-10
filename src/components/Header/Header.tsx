@@ -35,7 +35,7 @@ export const Header = () => {
           >
             <div className="ml-5 flex items-center justify-center sm:ml-0 sm:gap-2">
               <img src={Logo} alt="logo" className="w-20 sm:w-24" />
-              <h1 className=" whitespace-nowrap text-center text-2xl font-semibold sm:text-4xl">
+              <h1 className="whitespace-nowrap text-center text-2xl font-semibold sm:text-4xl">
                 CWUP - Plan zajęć
               </h1>
             </div>
