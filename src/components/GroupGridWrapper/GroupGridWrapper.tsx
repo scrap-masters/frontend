@@ -15,7 +15,7 @@ export const GroupGridWrapper = (props: GroupGridWrapperProps) => {
         "my-12 w-full",
         length < 3
           ? "flex flex-wrap justify-center gap-20"
-          : "md: grid grid-cols-[repeat(auto-fill,_350px)] place-content-around place-items-center gap-20"
+          : "md: grid grid-cols-[repeat(auto-fill,_350px)] place-content-around gap-20"
       )}
     >
       {children.length === 0 || children.every((child) => !child) ? (
